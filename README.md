@@ -13,6 +13,7 @@ The app itself is a simple TODO app that additionally authenticates users.
 5. [Log Message Processor](/log-message-processor) is a very short queue processor written in Python. It's sole purpose is to read messages from Redis queue and print them to stdout
 
 
+
 The diagram describes the various components and their interactions.
 ![microservice-app-example](https://user-images.githubusercontent.com/1905821/34918427-a931d84e-f952-11e7-85a0-ace34a2e8edb.png)
 
