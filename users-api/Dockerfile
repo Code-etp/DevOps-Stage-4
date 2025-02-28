@@ -9,3 +9,4 @@ WORKDIR /app
 COPY --from=builder /app/target/*.jar ./users-api.jar
 EXPOSE 8083
 CMD ["java", "-jar", "users-api.jar"]
+
