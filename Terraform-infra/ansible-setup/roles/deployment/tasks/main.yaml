@@ -20,7 +20,7 @@
 
 - name: Update domain in docker-compose.yml
   replace:
-    path: "{{ app_dir }}/DevOps-Stage-4/docker-compose.yml"
+    path: "{{ app_dir }}/docker-compose.yml"
     regexp: 'code-etp\.name\.ng'
     replace: "{{ domain }}"
 
