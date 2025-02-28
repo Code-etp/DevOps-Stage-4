@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-
   traefik:
     image: "traefik:v2.11"
     command:
@@ -10,7 +9,7 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.email=your-email@example.com"
+      - "--certificatesresolvers.myresolver.acme.email=lateefmikail@gmail.com"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
       - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
       - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
@@ -52,7 +51,7 @@ services:
       - "traefik.http.routers.auth.entrypoints=websecure"
       - "traefik.http.routers.auth.tls.certresolver=myresolver"
       - "traefik.http.services.auth.loadbalancer.server.port=8081"
-      - "traefik.http.middlewares.strip-auth.stripprefix.prefixes=/api/auth
+      - "traefik.http.middlewares.strip-auth.stripprefix.prefixes=/api/auth"
       - "traefik.http.routers.auth.middlewares=strip-auth"
 
   todos-api:
@@ -68,7 +67,7 @@ services:
       - "traefik.http.routers.todos.entrypoints=websecure"
       - "traefik.http.routers.todos.tls.certresolver=myresolver"
       - "traefik.http.services.todos.loadbalancer.server.port=8082"
-      - "traefik.http.middlewares.strip-todos.stripprefix.prefixes=/api/todos
+      - "traefik.http.middlewares.strip-todos.stripprefix.prefixes=/api/todos"
       - "traefik.http.routers.todos.middlewares=strip-todos"
 
   users-api:
@@ -84,7 +83,7 @@ services:
       - "traefik.http.routers.users.entrypoints=websecure"
       - "traefik.http.routers.users.tls.certresolver=myresolver"
       - "traefik.http.services.users.loadbalancer.server.port=8083"
-      - "traefik.http.middlewares.strip-users.stripprefix.prefixes=/api/users
+      - "traefik.http.middlewares.strip-users.stripprefix.prefixes=/api/users"
       - "traefik.http.routers.users.middlewares=strip-users"
 
   redis-queue:
@@ -100,4 +99,4 @@ services:
 
 networks:
   app-network:
-    driver: bridge 
+    driver: bridge
